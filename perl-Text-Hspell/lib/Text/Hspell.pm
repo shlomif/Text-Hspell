@@ -3,7 +3,7 @@ package Text::Hspell;
 use strict;
 use warnings;
 
-my $code = <<'EOF';
+use Inline Python => <<'EOF';
 import HspellPy
 
 class HspellPyWrapper:
@@ -13,8 +13,6 @@ class HspellPyWrapper:
     def check_word(self, word):
         return self._hspell.check_word(word);
 EOF
-require Inline;
-Inline->import( Python => $code, );
 
 sub new
 {
@@ -37,6 +35,12 @@ Text::Hspell - wrapper for the hspell (= Hebrew speller) library
     my $speller = Text::Hspell->new;
 
     print $speller->check_word("שלום") ? "spelled right\n" : "misspelling\n";
+
+=head1 DESCRIPTION
+
+This module allows one to use libhspell ( L<http://hspell.ivrix.org.il/> ) to
+spell check Hebrew words. It requires L<Inline::Python> and HspellPy (
+L<https://pypi.org/project/HspellPy/> ) from PyPI.
 
 =head1 METHODS
 
