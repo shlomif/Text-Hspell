@@ -3,8 +3,6 @@ package Text::Hspell;
 use strict;
 use warnings;
 
-our $VERSION = '0.0.1';
-
 my $code = <<'EOF';
 import HspellPy
 
@@ -30,6 +28,15 @@ __END__
 =head1 NAME
 
 Text::Hspell - wrapper for the hspell (= Hebrew speller) library
+
+=head1 SYNOPSIS
+
+    use Text::Hspell ();
+    use utf8;
+
+    my $speller = Text::Hspell->new;
+
+    print $speller->check_word("שלום") ? "spelled right\n" : "misspelling\n";
 
 =head1 METHODS
 
