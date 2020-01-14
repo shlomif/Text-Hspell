@@ -3,20 +3,26 @@ package Text::Hspell;
 use strict;
 use warnings;
 
-use Inline Python => <<'EOF';
-import HspellPy
+require DynaLoader;
 
-class HspellPyWrapper:
-    def __init__(self):
-        self._hspell = HspellPy.Hspell(linguistics=True)
+use vars qw(@ISA);
+@ISA = qw/ DynaLoader /;
 
-    def check_word(self, word):
-        return self._hspell.check_word(word);
-EOF
+our $VERSION = '0.2.0';
+
+bootstrap Text::Hspell $VERSION;
+
+use Encode qw/ encode /;
 
 sub new
 {
-    return Inline::Python::Object->new( '__main__', 'HspellPyWrapper' );
+    return _proto_new();
+}
+
+sub check_word
+{
+    my ( $self, $s ) = @_;
+    return $self->check_word_internal( encode( 'iso8859-8', $s ) );
 }
 
 1;
@@ -52,6 +58,10 @@ Create a new speller object instance.
 
 Returns true if the word is spelled right and false if it is an unknown
 word.
+
+=head2 $speller->check_word_internal()
+
+For internal use.
 
 =head1 COPYRIGHT & LICENSE
 
