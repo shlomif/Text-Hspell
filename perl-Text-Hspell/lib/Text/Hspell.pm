@@ -16,7 +16,7 @@ use Encode qw/ encode /;
 
 sub new
 {
-    return _proto_new();
+    return proto_new();
 }
 
 sub check_word
@@ -58,6 +58,10 @@ Create a new speller object instance.
 
 Returns true if the word is spelled right and false if it is an unknown
 word.
+
+=head2 $speller->proto_new()
+
+For internal use.
 
 =head2 $speller->check_word_internal()
 

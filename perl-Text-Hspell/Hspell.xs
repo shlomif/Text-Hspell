@@ -8,10 +8,10 @@ typedef struct
     struct dict_radix *dict;
 } PqInC;
 
-SV* _proto_new() {
+SV* texthspell_proto_new() {
         PqInC * s;
         SV*      obj_ref = newSViv(0);
-        SV*      obj = newSVrv(obj_ref, "PQ");
+        SV*      obj = newSVrv(obj_ref, "Text::Hspell");
         New(42, s, 1, PqInC);
 
         if (hspell_init(&(s->dict), 0)) {
@@ -31,21 +31,27 @@ static inline struct dict_radix * q(SV * const obj) {
     return (deref(obj)->dict);
 }
 
-int check_word_internal(SV * obj, char * word) {
+int texthspell_check_word_internal(SV * obj, char * word) {
     int no_use;
     int ret = hspell_check_word(q(obj), word, &no_use);
     return ret;
 }
 
-MODULE = Text::Hspell  PACKAGE = Text::Hspell
+MODULE = Text::Hspell  PACKAGE = Text::Hspell PREFIX = texthspell_
 
 PROTOTYPES: DISABLE
 
 
 SV *
-_proto_new ()
+texthspell_proto_new ()
 
 int
-check_word_internal (obj, s)
+texthspell_check_word_internal (obj, s)
 	SV *	obj
     char *  s
+
+void
+texthspell_DESTROY(obj)
+    SV * obj
+    CODE:
+        hspell_uninit(q(obj));
