@@ -1,0 +1,10 @@
+= Text::Hspell
+
+A wrapper for http://hspell.ivrix.org.il/[libhspell] for Perl 5:
+https://metacpan.org/pod/Text::Hspell - spell check https://en.wikipedia.org/wiki/Hebrew_language[Hebrew]
+words.
+
+= License
+
+This package uses the https://en.wikipedia.org/wiki/MIT_License[MIT / Expat license],
+while libhspell uses AGPLv3 .
