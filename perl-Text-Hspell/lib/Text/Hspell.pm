@@ -8,7 +8,7 @@ require DynaLoader;
 use vars qw(@ISA);
 @ISA = qw/ DynaLoader /;
 
-our $VERSION = '0.2.0';
+our $VERSION = '0.2.1';
 
 bootstrap Text::Hspell $VERSION;
 
@@ -45,8 +45,7 @@ Text::Hspell - wrapper for the hspell (= Hebrew speller) library
 =head1 DESCRIPTION
 
 This module allows one to use libhspell ( L<http://hspell.ivrix.org.il/> ) to
-spell check Hebrew words. It requires L<Inline::Python> and HspellPy (
-L<https://pypi.org/project/HspellPy/> ) from PyPI.
+spell check Hebrew words.
 
 =head1 METHODS
 
@@ -69,10 +68,13 @@ For internal use.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2019 by Shlomi Fish
+Copyright 2019 by Shlomi Fish.
 
 This program is distributed under the MIT / Expat License:
-L<http://www.opensource.org/licenses/mit-license.php>
+L<http://www.opensource.org/licenses/mit-license.php> .
+Note that it depends on libhspell which is curently under the
+L<https://en.wikipedia.org/wiki/Affero_General_Public_License>
+v3.
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -94,5 +96,15 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+
+=head1 THANKS
+
+An early version of this module required L<Inline::Python> (by
+L<https://metacpan.org/author/NINE> and others)
+and HspellPy ( L<https://pypi.org/project/HspellPy/> ) from PyPI
+(by L<https://github.com/eranroz/> ), so thanks to them.
+The dependency on these packages was removed in version 0.2.0.
+
+We still make use of libhspell ( L<http://hspell.ivrix.org.il/> ).
 
 =cut
