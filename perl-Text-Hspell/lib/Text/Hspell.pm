@@ -5,10 +5,9 @@ use warnings;
 
 require DynaLoader;
 
+use vars qw/ $VERSION /;
 use vars qw(@ISA);
 @ISA = qw/ DynaLoader /;
-
-our $VERSION = '0.2.2';
 
 bootstrap Text::Hspell $VERSION;
 
