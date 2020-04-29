@@ -1,5 +1,6 @@
 package Text::Hspell;
 
+use 5.014;
 use strict;
 use warnings;
 
