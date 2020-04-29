@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use utf8;
 
-use Test::More tests => 2;
+use Test::More tests => 3;
 
 use Text::Hspell v0.2.3;
 
@@ -17,4 +17,10 @@ use Text::Hspell v0.2.3;
 
     # TEST
     ok( scalar( $obj->check_word("שלום") ), "word is ok" );
+
+    # TEST
+    ok(
+        scalar( !( $obj->check_word("םץףללללללללללללללל") ) ),
+        "word is a mispelling"
+    );
 }
