@@ -12,7 +12,7 @@ use vars qw(@ISA);
 
 bootstrap Text::Hspell $VERSION;
 
-use Encode qw/ encode /;
+use Encode qw/ decode encode /;
 
 sub new
 {
@@ -23,6 +23,17 @@ sub check_word
 {
     my ( $self, $s ) = @_;
     return $self->check_word_internal( encode( 'iso8859-8', $s ) );
+}
+
+sub try_to_correct_word
+{
+    my ( $self, $s ) = @_;
+    my $ret = $self->trycorrect_internal( encode( 'iso8859-8', $s ) );
+    foreach my $r (@$ret)
+    {
+        $r = decode( 'iso8859-8', $r );
+    }
+    return $ret;
 }
 
 1;
@@ -58,11 +69,20 @@ Create a new speller object instance.
 Returns true if the word is spelled right and false if it is an unknown
 word.
 
+=head2 my $array_ref = $speller->try_to_correct_word($word)
+
+Returns an array reference of strings with spell correction suggestions
+for $word .
+
 =head2 $speller->proto_new()
 
 For internal use.
 
 =head2 $speller->check_word_internal()
+
+For internal use.
+
+=head2 $speller->trycorrect_internal()
 
 For internal use.
 
