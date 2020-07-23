@@ -8,3 +8,11 @@ words.
 
 This package uses the https://en.wikipedia.org/wiki/MIT_License[MIT / Expat license],
 while libhspell uses AGPLv3 .
+
+= Thanks
+
+An early version of this module required Inline::Python (by
+https://metacpan.org/author/NINE and others)
+and HspellPy ( https://pypi.org/project/HspellPy/ ) from PyPI
+(by https://github.com/eranroz/ ), so thanks to them.
+The dependency on these packages was removed in version 0.2.0.
