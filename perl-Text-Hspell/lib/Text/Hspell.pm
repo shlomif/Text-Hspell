@@ -74,6 +74,8 @@ word.
 Returns an array reference of strings with spell correction suggestions
 for $word .
 
+(Added in version 0.4.0 .)
+
 =head2 $speller->proto_new()
 
 For internal use.
