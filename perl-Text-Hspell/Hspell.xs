@@ -49,7 +49,7 @@ AV * texthspell_trycorrect_internal(SV * obj, char * word) {
         av_push(av, newSVpvn(str, strlen(str)));
     }
     corlist_free(&cl);
-    return av;
+    return (AV *)sv_2mortal((SV *)av);
 }
 
 MODULE = Text::Hspell  PACKAGE = Text::Hspell PREFIX = texthspell_
