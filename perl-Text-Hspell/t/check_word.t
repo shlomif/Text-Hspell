@@ -21,7 +21,7 @@ use Text::Hspell v0.4.0;
     # TEST
     ok(
         scalar( !( $obj->check_word("םץףללללללללללללללל") ) ),
-        "word is a mispelling"
+        "word is a misspelling",
     );
     if (0)
     {

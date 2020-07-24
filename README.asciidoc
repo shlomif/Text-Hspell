@@ -16,3 +16,7 @@ https://metacpan.org/author/NINE and others)
 and HspellPy ( https://pypi.org/project/HspellPy/ ) from PyPI
 (by https://github.com/eranroz/ ), so thanks to them.
 The dependency on these packages was removed in version 0.2.0.
+
+Thanks to the authors of hspell and libhspell:
+http://nadav.harel.org.il/[Nadav Har’EL], http://www.cs.technion.ac.il/~danken/[Dan Kenigsberg]
+and possibly others.
