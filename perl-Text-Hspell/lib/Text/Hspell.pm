@@ -130,4 +130,9 @@ The dependency on these packages was removed in version 0.2.0.
 We still make use of libhspell ( L<http://hspell.ivrix.org.il/> )
 by wrapping its C API.
 
+Thanks to the authors of hspell and libhspell:
+Nadav Har’El ( L<http://nadav.harel.org.il/> ),
+Dan Kenigsberg ( L<http://www.cs.technion.ac.il/~danken/> )
+and possibly others.
+
 =cut

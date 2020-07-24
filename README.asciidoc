@@ -18,5 +18,5 @@ and HspellPy ( https://pypi.org/project/HspellPy/ ) from PyPI
 The dependency on these packages was removed in version 0.2.0.
 
 Thanks to the authors of hspell and libhspell:
-http://nadav.harel.org.il/[Nadav Har’EL], http://www.cs.technion.ac.il/~danken/[Dan Kenigsberg]
+http://nadav.harel.org.il/[Nadav Har’El], http://www.cs.technion.ac.il/~danken/[Dan Kenigsberg]
 and possibly others.
